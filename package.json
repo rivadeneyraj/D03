@@ -1,0 +1,37 @@
+{
+  "name": "sos1920-l09",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "node index"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apexcharts": "^3.19.2",
+    "billboard.js": "^1.12.10",
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.3",
+    "echarts": "^4.8.0",
+    "express": "^4.17.1",
+    "fusioncharts": "^3.15.1-sr.1",
+    "lightweight-charts": "^2.0.0",
+    "nedb": "^1.8.0",
+    "request": "^2.88.2",
+    "svelte-fusioncharts": "^1.0.0",
+    "svelte-spa-router": "^2.1.0",
+    "sveltestrap": "^3.3.3"
+  }
+}
