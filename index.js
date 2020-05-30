@@ -2,6 +2,9 @@ const express = require("express");  //
 const bodyParser = require("body-parser"); //
 //const marriagesAPI = require("src/back/marriagesAPI");  
 const path = require ("path");
+// Usamos CORS para no tener el fallo de SOP
+const cors =require("cors");
+
 const marriagesAPI =require(path.join(__dirname,"./src/back/marriagesAPI"));
 
 const globalSuicidesAPI = require(path.join(__dirname,"./src/back/global-suicides_API"));
@@ -10,6 +13,8 @@ const globalDivorcesAPI = require(path.join(__dirname,"./src/back/divorcesAPI"))
 
 
 var app = express();//
+
+app.use(cors())
 
 app.use(bodyParser.json());   //
 

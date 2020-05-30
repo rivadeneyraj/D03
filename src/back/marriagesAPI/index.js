@@ -35,20 +35,15 @@ module.exports = function (app) {
 
     ];
 
+                            //=============================================================
+                            //======================ZONA INTEGRACIONES=====================
+                            //=============================================================
 
+    //*********************************PROXY***********************************************/
 
-
-
-//Configuracion para el PROXY
-// Parameters
-// You can use a shorthand for multiple API endpoints: /api|/other_api
-
-
-var paths='/api/v2/global-coef';          //Aqui seria donde esta ubicada nuestra API
+//Configuracion para el PROXY con el grupo 26 
+var paths='/api/v3/global-coef';          //Aqui seria donde esta ubicada nuestra API
 var apiServerHost = 'http://sos1920-26.herokuapp.com';     //Aqui es a donde redirigimos 
-
-
-
 
     //Para que el PROXY redireccione
 app.use(paths, function(req, res) {
@@ -56,6 +51,49 @@ app.use(paths, function(req, res) {
     console.log('piped: '+req.baseUrl + req.url);
     req.pipe(request(url)).pipe(res);
   });
+  // *****************************************************************************************
+
+
+    //*********************************CORS***********************************************/
+    const URL_05 = "https://sos1920-05.herokuapp.com";
+    app.use("/api/v1/books-exports", function(req, res) {
+        console.log("GET API DIEGO");
+        var url = URL_05 + req.baseUrl + req.url;
+        console.log("URL_DIEGO: "+url);
+        console.log('piped: ' + req.baseUrl + req.url);
+        req.pipe(request(url)).pipe(res);
+    });
+    app.use(express.static('.'));
+
+
+
+
+    const URL_21 = "https://sos1920-21.herokuapp.com";
+    app.use("/api/v2/traffic-injuries", function(req, res) {
+        console.log("GET API JUAN");
+        var url = URL_21 + req.baseUrl + req.url;
+        console.log("URL_JUAN: "+url);
+        console.log('piped: ' + req.baseUrl + req.url);
+        req.pipe(request(url)).pipe(res);
+    });
+    app.use(express.static('.'));
+
+
+
+
+    const URL_01 = "https://sos1920-01.herokuapp.com";
+    app.use("/api/v2/emigrants-stats", function(req, res) {
+        console.log("GET API ANTONIO");
+        var url = URL_01 + req.baseUrl + req.url;
+        console.log("URL_ANTONIO: "+url);
+        console.log('piped: ' + req.baseUrl + req.url);
+        req.pipe(request(url)).pipe(res);
+    });
+    app.use(express.static('.'));
+  // *****************************************************************************************
+
+
+
 
 
     function deleteIDs (marriages){
